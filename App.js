@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './src/screens/Home';
-import mock from './src/mocks/Home'
+import mock from './src/mocks/Home';
+import LocalList from './src/screens/LocalList';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Home {...mock}/>
+      <LocalList />
       <StatusBar style="auto" />
     </View>
   );
