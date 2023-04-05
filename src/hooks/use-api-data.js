@@ -23,23 +23,17 @@ const useApiData = (url, key) => {
       setLoading(true);
       try {
         const storedData = await AsyncStorage.getItem(key);
-        console.log("storedData", storedData);
         if (storedData) {
           setData(JSON.parse(storedData));
         }
         const netInfo = await NetInfo.fetch();
-        console.log("netInfo.isConnected", netInfo.isConnected);
         if (netInfo.isConnected) {
-          console.log("fetching data from API");
           const response = await axios.get(url);
-          console.log("response", response);
           const apiData = await response.data;
-          console.log("apiData", apiData);
           setData(apiData);
           await AsyncStorage.setItem(key, JSON.stringify(apiData));
         }
       } catch (error) {
-        console.log("error", error);
         setError(error);
       } finally {
         setLoading(false);
