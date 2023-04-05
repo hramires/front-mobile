@@ -2,8 +2,7 @@ import { renderHook } from "@testing-library/react-hooks";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import NetInfo from "@react-native-community/netinfo";
 import axios from "axios";
-
-import useApiData from "./useApiData";
+import useApiData from "../use-api-data";
 
 jest.mock("@react-native-async-storage/async-storage");
 jest.mock("@react-native-community/netinfo");
