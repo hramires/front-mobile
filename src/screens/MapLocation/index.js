@@ -1,13 +1,17 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import {styles} from "./styles"
-import Map from '../../components/Map';
+import React from "react";
+import Map from "../../components/Map";
+import TitleHeader from '../../components/TitleHeader'
+import { View } from "react-native";
 
-export default function MapLocation() {
-  return (
-            <View style={{flex:1, backgroundColor: 'blue'}}>
-                <Map></Map>
-            </View>
-            
+const handleBackPress = () => {
+    // Handle back press
+  };
+export default function MapLocation(){
+    return(
+        <View style={{flex:1}}>
+            <TitleHeader title={'Região Criúva'} onPress={handleBackPress}/>
+            <Map/>
+        </View>
     );
 }
+

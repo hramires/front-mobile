@@ -1,27 +1,47 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, Dimensions, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
-const MapViewComponent = () => {
+const { width, height } = Dimensions.get('window');
+const ASPECT_RATIO = width / height;
+const LATITUDE_DELTA = 0.0922;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+
+const Map = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <MapView
-        style={{ flex: 1 }}
+        style={styles.map}
         initialRegion={{
           latitude: 37.78825,
           longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA,
         }}
       >
         <Marker
-          coordinate={{ latitude: 29.1740, longitude: 51.1812 }}
-          title={"Marker Title"}
-          description={"Marker Description"}
+          coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
+          title="Marker Title"
+          description="Marker Description"
         />
       </MapView>
     </View>
   );
-}
+};
 
-export default MapViewComponent;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  map: {
+    width: Dimensions.get('window').width,
+    // height: Dimensions.get('window').height / 2,
+    height: '100%',
+  },
+});
+
+export default Map;
