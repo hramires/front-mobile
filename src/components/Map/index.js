@@ -14,7 +14,7 @@ const Map = () => {
     <View style={styles.container}>
       <View style={styles.mapContainer}>
           <MapView
-            mapType={'mutedStandard'}
+            mapType={'standard'}
             style={styles.map}
             initialRegion={{
               latitude: -28.875086525967582,
