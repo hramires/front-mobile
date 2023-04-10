@@ -1,12 +1,17 @@
 import { StyleSheet, Text, View, StatusBar, Platform } from "react-native";
-import Home from "./src/screens/Home";
-import mock from "./src/mocks/Home";
 import CustomHeader from "./src/components/CustomHeader";
-import MapLocation from "./src/screens/MapLocation";
 import LocalList from "./src/screens/LocalList";
-import { useRef}  from "react";
+import React, { useEffect, useRef } from "react";
+import useFetch from "./src/hooks/use-fetch";
 
 export default function App() {
+  const [regions, regionsLoading, regionsError] = useFetch("regions");
+  const [places, placesLoading, placesError] = useFetch("places");
+  const [routes, routesLoading, routesError] = useFetch("routes");
+  const [events, eventsLoading, eventsError] = useFetch("events");
+  const [categories, categoriesLoading, categoriesError] =
+    useFetch("categories");
+
   const osRef = useRef(Platform.OS);
   return (
     <View style={[styles.container]}>
