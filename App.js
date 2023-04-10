@@ -3,6 +3,7 @@ import Home from "./src/screens/Home";
 import mock from "./src/mocks/Home";
 import CustomHeader from "./src/components/CustomHeader";
 import MapLocation from "./src/screens/MapLocation";
+import LocalList from "./src/screens/LocalList";
 import { useRef}  from "react";
 
 export default function App() {
@@ -17,7 +18,7 @@ export default function App() {
       ) : (
         <StatusBar backgroundColor="#9DCC9B" barStyle="dark-content" />
       )}
-      <MapLocation></MapLocation>
+      <LocalList></LocalList>
     </View>
   );
 }
