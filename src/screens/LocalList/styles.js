@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
+export default styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#D5E4CF',
+        marginTop: 100,   
     },
-
+    card:{
+    },
 })
