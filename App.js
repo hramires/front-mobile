@@ -1,35 +1,24 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, StatusBar, Platform } from "react-native";
 import Home from "./src/screens/Home";
 import mock from "./src/mocks/Home";
-import { useEffect } from "react";
-import useApiData from "./src/hooks/use-api-data";
-import { persistor } from "./src/store";
+import CustomHeader from "./src/components/CustomHeader";
+import MapLocation from "./src/screens/MapLocation";
+import LocalList from "./src/screens/LocalList";
+import { useRef}  from "react";
 
 export default function App() {
-  // const [placesData, placesLoading, placesError] = useApiData(
-  //   "https://rotasrurais.free.beeceptor.com/api/v1/places",
-  //   "places"
-  // );
-
-  const places = [
-    { id: 1, name: "Teste" },
-    { id: 2, name: "Teste 2" },
-    { id: 3, name: "Teste 3" },
-  ];
-  const data = persistor.getState();
-
-  const store = persistor.dispatch({ type: "SET_PLACES", payload: places });
-
+  const osRef = useRef(Platform.OS);
   return (
-    <View style={styles.container}>
-      <Home {...mock} />
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Places Data: {JSON.stringify(data)}</Text>
-        {/* <Text>Places Loading: {JSON.stringify(placesLoading)}</Text>
-        <Text>Places Error: {JSON.stringify(placesError)}</Text> */}
-      </View>
-      <StatusBar style="auto" />
+    <View style={[styles.container]}>
+      {osRef.current === "ios" ? (
+        <>
+          <StatusBar backgroundColor="#F5F5F5" barStyle="dark-content" />
+          <CustomHeader />
+        </>
+      ) : (
+        <StatusBar backgroundColor="#9DCC9B" barStyle="dark-content" />
+      )}
+      <LocalList></LocalList>
     </View>
   );
 }
@@ -37,8 +26,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
