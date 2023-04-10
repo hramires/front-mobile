@@ -10,8 +10,13 @@ export default styles = StyleSheet.create({
       justifyContent: 'center',
     },
     map: {
-      width: Dimensions.get('window').width,
-      // height: Dimensions.get('window').height / 2,
-      height: '100%',
+      flex:1
+      // height: '100%',
     },
+    mapContainer:{
+      width: Dimensions.get('window').width,
+      // height: Dimensions.get('window').height *0.9,
+      height: '100%',
+      paddingBottom: Dimensions.get('window').height *0.09,
+    }
   });

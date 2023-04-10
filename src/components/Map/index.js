@@ -10,23 +10,28 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 //-28.875086525967582, -50.97633954616877
 const Map = () => {
   return (
+    <>
     <View style={styles.container}>
-      <MapView
-        style={styles.map}
-        initialRegion={{
-          latitude: -28.875086525967582,
-          longitude: -50.97633954616877,
-          latitudeDelta: LATITUDE_DELTA,
-          longitudeDelta: LONGITUDE_DELTA,
-        }}
-      >
-        <Marker
-          coordinate={{ latitude: -28.875086525967582, longitude: -50.97633954616877 }}
-          title="Região Criúva"
-          description="Além da vasta cultura trazida pelos tropeiros, Criúva é privilegiada pelas belezas naturais de seu interior: são cascatas, rios, matas nativas, rica flora e o maior recurso hídrico potável do município"
-        />
-      </MapView>
-    </View>
+      <View style={styles.mapContainer}>
+          <MapView
+            mapType={'mutedStandard'}
+            style={styles.map}
+            initialRegion={{
+              latitude: -28.875086525967582,
+              longitude: -50.97633954616877,
+              latitudeDelta: LATITUDE_DELTA,
+              longitudeDelta: LONGITUDE_DELTA,
+            }}
+            >
+            <Marker
+              coordinate={{ latitude: -28.875086525967582, longitude: -50.97633954616877 }}
+              title="Região Criúva"
+              description="Criúva é privilegiada pelas belezas naturais de seu interior"
+              />
+          </MapView>
+        </View>
+      </View>
+    </>
   );
 };
 
