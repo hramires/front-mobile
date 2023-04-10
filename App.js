@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, StatusBar, Platform } from "react-native";
 import CustomHeader from "./src/components/CustomHeader";
 import LocalList from "./src/screens/LocalList";
+import MapLocation from "./src/screens/MapLocation";
 import React, { useEffect, useRef } from "react";
 import useFetch from "./src/hooks/use-fetch";
 import { NavigationContainer } from "@react-navigation/native";

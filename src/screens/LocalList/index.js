@@ -1,20 +1,36 @@
-import React from 'react';
-import { ScrollView, View } from 'react-native';
-//import { Text } from "react-native-elements";
+import React, { useEffect } from "react";
+import { FlatList, ScrollView, View } from "react-native";
 import styles from "./styles";
-import TitleHeader from '../../components/TitleHeader'
-import LocalCard from '../../components/LocalCard'
+import TitleHeader from "../../components/TitleHeader";
+import LocalCard from "../../components/LocalCard";
+import { SafeAreaView } from "react-native-safe-area-context";
+import useStorage from "../../hooks/use-storage";
 
+export default function LocalList({ navigation }) {
+  const [places, placesLoading, placesError] = useStorage("places");
 
-export default function LocalList({navigation}) {
+  useEffect(() => {
+    console.log("[LocalList] places:", places);
+  }, [places]);
+
   return (
     <View style={styles.container}>
-      <TitleHeader title={'Região Criúva'} onPress={()=>navigation.navigate('MapLocation')}/>
-      <ScrollView> 
-        <LocalCard style={styles.card}/> 
-        <LocalCard style={styles.card}/>  
-      </ScrollView> 
+      <TitleHeader
+        title={"Região Criúva"}
+        onPress={() => navigation.navigate("MapLocation")}
+      />
+      <SafeAreaView>
+        <FlatList
+          data={places}
+          renderItem={(place) => (
+            <LocalCard
+              style={styles.card}
+              title={place.name}
+              description={place.description}
+            />
+          )}
+        />
+      </SafeAreaView>
     </View>
   );
 }
-
