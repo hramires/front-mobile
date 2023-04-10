@@ -3,8 +3,7 @@ import { StyleSheet } from "react-native";
 export default styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#D5E4CF',
-        marginTop: 100,   
+        backgroundColor: '#D5E4CF',   
     },
     card:{
     },
