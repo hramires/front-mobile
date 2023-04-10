@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FlatList, ScrollView, View } from "react-native";
+import { FlatList, ScrollView, Text, View } from "react-native";
 import styles from "./styles";
 import TitleHeader from "../../components/TitleHeader";
 import LocalCard from "../../components/LocalCard";
@@ -9,25 +9,27 @@ import useStorage from "../../hooks/use-storage";
 export default function LocalList({ navigation }) {
   const [places, placesLoading, placesError] = useStorage("places");
 
-  useEffect(() => {
-    console.log("[LocalList] places:", places);
-  }, [places]);
+  const onPressHandler = () => {
+    navigation.navigate("MapLocation");
+  };
 
   return (
     <View style={styles.container}>
-      <TitleHeader
-        title={"Região Criúva"}
-        onPress={() => navigation.navigate("MapLocation")}
-      />
+      <TitleHeader title={"Região Criúva"} onPress={onPressHandler} />
       <SafeAreaView>
+        {placesLoading && <Text>Loading...</Text>}
+        {placesError && <Text>Error: {placesError}</Text>}
         <FlatList
           data={places}
-          renderItem={(place) => (
-            <LocalCard
-              style={styles.card}
-              title={place.name}
-              description={place.description}
-            />
+          renderItem={({ item }) => (
+            <>
+              <LocalCard
+                title={item.name}
+                description={item.description}
+                onPress={onPressHandler}
+              />
+              <LocalCard />
+            </>
           )}
         />
       </SafeAreaView>

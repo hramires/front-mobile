@@ -8,12 +8,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function App() {
-  const [regions, regionsLoading, regionsError] = useFetch("regions");
+  //const [regions, regionsLoading, regionsError] = useFetch("regions");
   const [places, placesLoading, placesError] = useFetch("places");
-  const [routes, routesLoading, routesError] = useFetch("routes");
-  const [events, eventsLoading, eventsError] = useFetch("events");
-  const [categories, categoriesLoading, categoriesError] =
-    useFetch("categories");
+  //const [routes, routesLoading, routesError] = useFetch("routes");
+  //const [events, eventsLoading, eventsError] = useFetch("events");
+  //const [categories, categoriesLoading, categoriesError] = useFetch("categories");
 
   const osRef = useRef(Platform.OS);
   const Stack = createNativeStackNavigator();
