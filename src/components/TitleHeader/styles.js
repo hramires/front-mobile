@@ -5,7 +5,7 @@ const STATUSBAR_HEIGHT = StatusBar.currentHeight || 0;
 export default styles = StyleSheet.create({
     container: {
       flex: 1,
-      display: 'flex'
+      display: 'flex',
     },
     header: {
       backgroundColor: '#024053',
