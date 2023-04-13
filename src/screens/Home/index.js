@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/core';
 import useFetch from '../../hooks/use-fetch';
 import LocalCard from '../../components/LocalCard';
+import TitleHeader from '../../components/TitleHeader';
 
 export default function HomePage({ header }) {
     const navigation = useNavigation();
@@ -19,8 +20,13 @@ export default function HomePage({ header }) {
         navigation.navigate('LocalList');
     };
 
+    const onPressHandler = () => {
+        navigation.navigate('MapLocation');
+    };
+
     return (
         <View>
+            <TitleHeader title={'Região Criúva'} onPress={onPressHandler} />
             <Text
                 style={{ fontSize: 24, fontWeight: 'bold', marginVertical: 16 }}
             >
