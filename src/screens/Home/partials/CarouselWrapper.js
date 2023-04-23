@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import React from 'react';
 import Carousel from '../../../components/Carousel/Carousel';
 import { Button } from '../../../components/Button';

@@ -2,10 +2,10 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/core';
-import useFetch from '../../hooks/use-fetch';
 import TitleHeader from '../../components/TitleHeader';
 import CarouselWrapper from './partials/CarouselWrapper';
 import { mockupEvents, mockupPlaces, mockupRoutes } from '../../data';
+//import useFetch from '../../hooks/use-fetch';
 
 export default function HomePage({ header }) {
   const navigation = useNavigation();

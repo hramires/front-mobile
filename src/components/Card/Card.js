@@ -29,8 +29,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: 'hidden',
     width: width * 0.9,
-    //backgroundColor: 'white',
-    //alignItems: 'center',
     padding: 0,
   },
   img: {
