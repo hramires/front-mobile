@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, StatusBar, Platform } from "react-native";
 import CustomHeader from "./src/components/CustomHeader";
 import LocalList from "./src/screens/LocalList";
+import EventList from "./src/screens/EventList";
 import MapLocation from "./src/screens/MapLocation";
 import React, { useEffect, useRef } from "react";
 import useFetch from "./src/hooks/use-fetch";
@@ -30,6 +31,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="MapLocation" component={MapLocation} />
           <Stack.Screen name="LocalList" component={LocalList} />
+          <Stack.Screen name="EventList" component={EventList} />
         </Stack.Navigator>
       </View>
     </NavigationContainer>
