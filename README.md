@@ -8,7 +8,7 @@ Rotas Rurais is a project that aims to promote rural tourism in Caxias do Sul by
 
 (Another possibility would be to add user stories to this list)
 
-- [ ] Access to all features without internet access
+- [x] Access to all features without internet access
 - [ ] Visualization of all tourist regions of Caxias do Sul
 - [ ] Visualization of all places by region
 - [ ] Visualization of all events by region
