@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import useStorage from "../../hooks/use-storage";
 
 export default function EventList({ navigation }) {
-  const [places, placesLoading, placesError] = useStorage("places");
+  const [events, eventsLoading, eventsError] = useStorage("event");
 
   const onPressHandler = () => {
     navigation.navigate("MapLocation");
@@ -17,10 +17,10 @@ export default function EventList({ navigation }) {
     <View style={styles.container}>
       <TitleHeader title={"Região Ana Rech"} onPress={onPressHandler} />
       <SafeAreaView>
-        {placesLoading && <Text>Loading...</Text>}
-        {placesError && <Text>Error: {placesError}</Text>}
+        {eventsLoading && <Text>Loading...</Text>}
+        {eventsError && <Text>Error: {eventsError}</Text>}
         <FlatList
-          data={places}
+          data={events}
           renderItem={({ item }) => (
             <>
               <EventCard
