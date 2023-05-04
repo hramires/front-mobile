@@ -16,7 +16,8 @@ const useStorage = (endpoint) => {
       try {
         const data = await AsyncStorage.getItem(endpoint);
         if(data){
-          setData(JSON.parse(data) || []);
+          if(event===endpoint){setData(mockupEvents)}
+          //setData(JSON.parse(data) || []);
         }
         else{
           switch (endpoint) {
