@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { FlatList, ScrollView, Text, View } from 'react-native';
 import styles from './styles';
 import TitleHeader from '../../components/TitleHeader';
-import {CardWrapper as Card} from '../../components/Card/Card';
+import LocalCard from '../../components/Card/Card';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import useStorage from '../../hooks/use-storage';
 
@@ -23,12 +23,12 @@ export default function LocalList({ navigation }) {
           data={places}
           renderItem={({ item }) => (
             <>
-              <Card
+              <LocalCard
                 title={item.name}
                 description={item.description}
                 onPress={onPressHandler}
               />
-              <Card />
+              <LocalCard />
             </>
           )}
         />

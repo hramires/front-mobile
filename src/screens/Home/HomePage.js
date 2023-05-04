@@ -34,7 +34,7 @@ export default function HomePage({ header }) {
         <CarouselWrapper
           title={'Roteiros'}
           data={mockupRoutes}
-          navigate={'RouteList'}
+          navigate={'LocalList'}
         />
         <CarouselWrapper
           title={'Locais'}
