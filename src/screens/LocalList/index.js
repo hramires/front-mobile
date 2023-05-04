@@ -21,11 +21,12 @@ export default function LocalList({ navigation }) {
         {placesError && <Text>Error: {placesError}</Text>}
         <FlatList
           data={places}
-          renderItem={({ item }) => (
+          renderItem={({item}) => (
             <>
               <LocalCard
                 title={item.name}
                 description={item.description}
+                image={item?.image}
                 onPress={onPressHandler}
               />
               <LocalCard />
