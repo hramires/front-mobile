@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CustomHeader from './src/components/CustomHeader';
 import LocalList from './src/screens/LocalList';
+import RouteList from './src/screens/RouteList';
 import MapLocation from './src/screens/MapLocation';
 import HomePage from './src/screens/Home/HomePage';
 import { colorPalette } from './constants';
@@ -29,6 +30,7 @@ export default function App() {
           <Stack.Screen name='HomePage' component={HomePage} />
           <Stack.Screen name='MapLocation' component={MapLocation} />
           <Stack.Screen name='LocalList' component={LocalList} />
+          <Stack.Screen name='RouteList' component={RouteList} />
         </Stack.Navigator>
       </View>
     </NavigationContainer>
