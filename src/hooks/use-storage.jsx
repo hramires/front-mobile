@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { mockupPlaces, mockupRoutes } from "../data";
+import { mockupEvents } from "../data/event";
+import { mockupPlaces } from "../data/place";
+import { mockupRoutes } from "../data/route";
+import { mockupCategories } from "../data/category";
 
 const useStorage = (endpoint) => {
   const [data, setData] = useState(null);
@@ -12,9 +15,28 @@ const useStorage = (endpoint) => {
       setLoading(true);
       try {
         const data = await AsyncStorage.getItem(endpoint);
-        if("route"===endpoint){setData(mockupRoutes)}
-        if("places"===endpoint){setData(mockupPlaces)}
-        //setData(JSON.parse(data) || []);
+        if(data){
+          if(event===endpoint){setData(mockupEvents)}
+          //setData(JSON.parse(data) || []);
+        }
+        else{
+          switch (endpoint) {
+            case "event":
+              setData(mockupEvents);
+              break;
+            case "place":
+              setData(mockupPlaces);
+              break;
+            case "route":
+              setData(mockupRoutes);
+            break;
+            case "category":
+              setData(mockupCategories);
+            break;
+            default:
+              setData(JSON.parse(data) || []);
+          }
+        }
       } catch (error) {
         setError(error);
       } finally {
