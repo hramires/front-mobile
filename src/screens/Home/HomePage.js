@@ -26,7 +26,6 @@ export default function HomePage({ header }) {
 
   return (
     <View>
-
     <HomeHeader title={'Região Criúva'} color={whiteHeaderTextColor}backgroundColor={secondaryHeaderColor} onPress={onPressHandler} />
     <SafeAreaView >
       <ScrollView>
