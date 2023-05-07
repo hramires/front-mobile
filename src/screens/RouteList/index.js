@@ -11,7 +11,7 @@ export default function RouteList({ navigation }) {
     const [route, rmapsLoading, rmapsError] = useStorage('route');
   
     const onPressHandler = () => {
-      navigation.navigate('MapLocation');
+      navigation.goBack();
     };
 
   
@@ -26,16 +26,12 @@ export default function RouteList({ navigation }) {
             
             data={route}
             renderItem={({ item }) => (
-              <>
                 <Card
                   title={item.name}
                   description={item.description}
                   image={item?.image}
                   onPress={onPressHandler}
-                />
-                <Card />
-              </>
-              
+                />              
             )}
           />
         </SafeAreaView>

@@ -10,7 +10,7 @@ export default function MapLocation({navigation}){
     return(
         <>
         <View style={{flex:1}}>
-            <TitleHeader title={'Região Criúva'} onPress={()=>navigation.navigate('LocalList')}/>
+            <TitleHeader title={'Região Criúva'} onPress={()=>navigation.goBack()}/>
             <Map/>
             {/* <View style={{ flex: 1 }} />  */}
             <View style={styles.footer}>                

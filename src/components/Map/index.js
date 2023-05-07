@@ -2,6 +2,7 @@ import React from 'react';
 import { Dimensions, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import styles from './styles';
+import imag from '../../../assets/1.png'
 
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;

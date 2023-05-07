@@ -7,10 +7,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import useStorage from '../../hooks/use-storage';
 
 export default function LocalList({ navigation }) {
-  const [places, placesLoading, placesError] = useStorage('places');
+  const [places, placesLoading, placesError] = useStorage('place');
 
   const onPressHandler = () => {
-    navigation.navigate('MapLocation');
+    navigation.goBack();
   };
 
   return (
@@ -22,15 +22,12 @@ export default function LocalList({ navigation }) {
         <FlatList
           data={places}
           renderItem={({item}) => (
-            <>
               <LocalCard
-                title={item.name}
-                description={item.description}
-                image={item?.image}
-                onPress={onPressHandler}
-              />
-              <LocalCard />
-            </>
+              title={item.name}
+              description={item.description}
+              image={item?.image}
+              onPress={onPressHandler} />
+              
           )}
         />
       </SafeAreaView>

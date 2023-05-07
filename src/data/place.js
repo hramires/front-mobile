@@ -1,7 +1,7 @@
 export const mockupPlaces = [
   {
     id: 1,
-    name: 'Cânion do Palanquinho',
+    name: 'Cânion do Palanquiho',
     region_id: 1,
     placeCategory_id: 1,
     photo_id: null,

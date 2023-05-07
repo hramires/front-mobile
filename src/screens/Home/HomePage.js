@@ -25,15 +25,15 @@ export default function HomePage({ header }) {
   };
 
   return (
-    <View>
-    <HomeHeader title={'Região Criúva'} color={whiteHeaderTextColor}backgroundColor={secondaryHeaderColor} onPress={onPressHandler} />
+    // <View>
     <SafeAreaView >
+      <HomeHeader title={'Região Criúva'} color={whiteHeaderTextColor}backgroundColor={secondaryHeaderColor} onPress={onPressHandler} />
       <ScrollView>
         <CarouselWrapper
           title={'Eventos'}
           data={mockupEvents}
-          navigate={'EventList'}
-        />
+          navigate={'LocalList'}
+          />
         <CarouselWrapper
           title={'Roteiros'}
           data={mockupRoutes}
@@ -46,6 +46,5 @@ export default function HomePage({ header }) {
           />
       </ScrollView>
     </SafeAreaView>
-          </View>
   );
 }

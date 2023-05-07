@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { primaryHeaderColor } from '../../config/Theme';
 
 const TitleHeader = (props) => {
-  color = primaryHeaderColor
     return(
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={props.onPress}>

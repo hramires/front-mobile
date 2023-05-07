@@ -10,7 +10,7 @@ export default function EventList({ navigation }) {
   const [events, eventsLoading, eventsError] = useStorage("event");
 
   const onPressHandler = () => {
-    navigation.navigate("MapLocation");
+    navigation.goBack();
   };
 
   return (
@@ -22,15 +22,12 @@ export default function EventList({ navigation }) {
         <FlatList
           data={events}
           renderItem={({ item }) => (
-            <>
               <EventCard
                 title={item.name}
                 description={item.description}
                 image={item?.image}
                 onPress={onPressHandler}
               />
-              <EventCard />
-            </>
           )}
         />
       </SafeAreaView>
