@@ -5,11 +5,10 @@ import { Button } from '../../../components/Button';
 import { colorPalette } from '../../../../constants';
 import { useNavigation } from '@react-navigation/native';
 
-const CarouselWrapper = ({ title, navigate, data }) => {
-  const navigation = useNavigation();
+const CarouselWrapper = ({navigation, title, viewAll, viewItem, data }) => {
 
-  const handleOnPress = () => {
-    navigation.navigate(navigate);
+  const handleOnPress = (screen, params={}) => {
+    navigation.navigate(screen, params);
   };
 
   return (
@@ -34,7 +33,7 @@ const CarouselWrapper = ({ title, navigate, data }) => {
         </Text>
         <Button
           title={'Ver tudo'}
-          onPress={handleOnPress}
+          onPress={() => handleOnPress(viewAll)}
           style={{
             flexDirection: 'row',
             alignItems: 'center',
@@ -58,7 +57,7 @@ const CarouselWrapper = ({ title, navigate, data }) => {
           iconStyle={{ size: 20, color: colorPalette.backgroundGreen }}
         />
       </View>
-      <Carousel data={data} />
+      <Carousel data={data} navigate={viewItem} navigation={navigation} />
     </View>
   );
 };

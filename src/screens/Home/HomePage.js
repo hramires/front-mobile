@@ -7,8 +7,8 @@ import CarouselWrapper from './partials/CarouselWrapper';
 import { mockupEvents, mockupPlaces, mockupRoutes } from '../../data';
 //import useFetch from '../../hooks/use-fetch';
 
-export default function HomePage({ header }) {
-  const navigation = useNavigation();
+export default function HomePage({navigation}) {
+  //const navigation = useNavigation();
   /**
    * Blocked until the server is deployed
    * const [places, placesLoading, placesError] = useFetch('places');
@@ -29,17 +29,23 @@ export default function HomePage({ header }) {
         <CarouselWrapper
           title={'Eventos'}
           data={mockupEvents}
-          navigate={'LocalList'}
+          viewAll={'LocalList'}  
+          viewItem={'ViewLocation'}
+          navigation={navigation}     
         />
         <CarouselWrapper
           title={'Roteiros'}
           data={mockupRoutes}
-          navigate={'LocalList'}
+          viewAll={'LocalList'}
+          viewItem={'ViewLocation'}
+          navigation={navigation}   
         />
         <CarouselWrapper
           title={'Locais'}
           data={mockupPlaces}
-          navigate={'LocalList'}
+          viewAll={'LocalList'}
+          viewItem={'ViewLocation'}
+          navigation={navigation}   
         />
       </ScrollView>
     </SafeAreaView>

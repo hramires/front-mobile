@@ -6,6 +6,7 @@ import CustomHeader from './src/components/CustomHeader';
 import LocalList from './src/screens/LocalList';
 import MapLocation from './src/screens/MapLocation';
 import HomePage from './src/screens/Home/HomePage';
+import ViewLocation from "./src/screens/ViewLocation";
 import { colorPalette } from './constants';
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
           <Stack.Screen name='HomePage' component={HomePage} />
           <Stack.Screen name='MapLocation' component={MapLocation} />
           <Stack.Screen name='LocalList' component={LocalList} />
+          <Stack.Screen name="ViewLocation" component={ViewLocation} />
         </Stack.Navigator>
       </View>
     </NavigationContainer>
