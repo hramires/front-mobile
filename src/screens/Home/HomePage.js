@@ -25,9 +25,9 @@ export default function HomePage({ header }) {
   };
 
   return (
-    // <View>
-    <SafeAreaView >
+    <View style={styles.container}>
       <HomeHeader title={'Região Criúva'} color={whiteHeaderTextColor}backgroundColor={secondaryHeaderColor} onPress={onPressHandler} />
+    <SafeAreaView style={{marginBottom:20}}>
       <ScrollView>
         <CarouselWrapper
           title={'Eventos'}
@@ -46,5 +46,6 @@ export default function HomePage({ header }) {
           />
       </ScrollView>
     </SafeAreaView>
+    </View>
   );
 }
