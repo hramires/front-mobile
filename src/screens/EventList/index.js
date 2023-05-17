@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import useStorage from "../../hooks/use-storage";
 
 export default function EventList({ navigation }) {
-  const [events, eventsLoading, eventsError] = useStorage("event");
+  const [events, eventsLoading, eventsError] = useStorage('event');
   const [filteredEvents, setFilteredEvents] = useState(events);
   const [filter, setFilter] = useState("");
 
