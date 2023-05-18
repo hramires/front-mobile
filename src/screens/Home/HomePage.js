@@ -1,16 +1,14 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/core';
-import HomeHeader from '../../components/HomeHeader';
+import TitleHeader from '../../components/TitleHeader';
 import CarouselWrapper from './partials/CarouselWrapper';
 import { mockupEvents, mockupPlaces, mockupRoutes } from '../../data';
-import { primaryHeaderColor, secondaryHeaderColor, whiteHeaderTextColor } from '../../config/Theme';
-import styles from '../../components/TitleHeader/styles';
 //import useFetch from '../../hooks/use-fetch';
 
-export default function HomePage({ header }) {
-  const navigation = useNavigation();
+export default function HomePage({navigation}) {
+  //const navigation = useNavigation();
   /**
    * Blocked until the server is deployed
    * const [places, placesLoading, placesError] = useFetch('places');
@@ -25,27 +23,31 @@ export default function HomePage({ header }) {
   };
 
   return (
-    <View style={styles.container}>
-      <HomeHeader title={'Região Criúva'} color={whiteHeaderTextColor}backgroundColor={secondaryHeaderColor} onPress={onPressHandler} />
-    <SafeAreaView style={{marginBottom:20}}>
+    <SafeAreaView>
       <ScrollView>
+        <TitleHeader title={'Região Criúva'} onPress={onPressHandler} />
         <CarouselWrapper
           title={'Eventos'}
           data={mockupEvents}
-          navigate={'LocalList'}
-          />
+          viewAll={'EventList'}  
+          viewItem={'ViewItem'}
+          navigation={navigation}     
+        />
         <CarouselWrapper
           title={'Roteiros'}
           data={mockupRoutes}
-          navigate={'RouteList'}
-          />
+          viewAll={'RouteList'}
+          viewItem={'ViewItem'}
+          navigation={navigation}   
+        />
         <CarouselWrapper
           title={'Locais'}
           data={mockupPlaces}
-          navigate={'LocalList'}
-          />
+          viewAll={'LocalList'}
+          viewItem={'ViewItem'}
+          navigation={navigation}   
+        />
       </ScrollView>
     </SafeAreaView>
-    </View>
   );
 }

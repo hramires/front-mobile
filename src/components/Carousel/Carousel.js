@@ -3,9 +3,13 @@ import React, { useRef, useState } from 'react';
 import Pagination from './Pagination';
 import { CardWrapper as Card } from '../Card/Card';
 
-const Carousel = ({ data }) => {
+const Carousel = ({navigation, data, navigate }) => {
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
+
+  const handleOnPress = (screen, params={}) => {
+    navigation.navigate(screen, params);
+  };
 
   const handleOnScroll = (event) => {
     Animated.event(
@@ -43,7 +47,7 @@ const Carousel = ({ data }) => {
             title={item.name}
             description={item.description}
             image={item?.image}
-            onPress={() => console.log(`Tapped on ${item.name}`)}
+            onPress={() => handleOnPress(navigate, item)}
           />
         )}
         horizontal
