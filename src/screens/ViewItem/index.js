@@ -47,6 +47,34 @@ export default function ViewItem({ navigation, route }) {
           <Text style={styles.descriptionInfo}>
             Exige agendamento: {route.params.appointment ? 'Sim' : 'Não'}
           </Text>
+          {route.params.type === 'ROUTE' && <FlatList
+          data={route.places}
+          renderItem={({ item }) => (
+            <>
+              <LocalCard
+                title={item.name}
+                description={item.description}
+                image={item?.image}
+              />
+            </>
+          )}
+        />}
+        {route.params.type === 'PLACE' && <Button
+          onPress={'EventList'}
+          title='Ver eventos neste local'
+          style={{
+            backgroundColor: '#2A846B',
+            width: 135,
+            height: 45,
+            borderRadius: 4,
+            justifyContent: 'center',
+          }}
+          textStyle={{
+            textAlign: 'center',
+            color: 'white',
+            fontSize: 16,
+          }}
+        />}
         </ScrollView>
       </SafeAreaView>
     </View>
