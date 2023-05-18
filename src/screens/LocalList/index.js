@@ -9,13 +9,13 @@ import useStorage from '../../hooks/use-storage';
 export default function LocalList({ navigation }) {
   const [places, placesLoading, placesError] = useStorage('place');
 
-  const onPressHandler = () => {
-    navigation.goBack();
+  const onPressHandler = (screen, item) => {
+    navigation.navigate(screen, item);
   };
 
   return (
     <View style={styles.container}>
-      <TitleHeader title={'Região Criúva'} onPress={onPressHandler} />
+      <TitleHeader title={'Região Criúva'} onPress={()=>navigation.goBack()} />
       <SafeAreaView>
         {placesLoading && <Text>Loading...</Text>}
         {placesError && <Text>Error: {placesError}</Text>}
@@ -26,7 +26,7 @@ export default function LocalList({ navigation }) {
               title={item.name}
               description={item.description}
               image={item?.image}
-              onPress={onPressHandler} />
+              onPress={()=>onPressHandler('ViewItem',item)}/>
               
           )}
         />

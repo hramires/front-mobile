@@ -9,13 +9,13 @@ import useStorage from "../../hooks/use-storage";
 export default function EventList({ navigation }) {
   const [events, eventsLoading, eventsError] = useStorage("event");
 
-  const onPressHandler = () => {
-    navigation.goBack();
+  const onPressHandler = (screen, item) => {
+    navigation.navigate(screen, item);
   };
 
   return (
     <View style={styles.container}>
-      <TitleHeader title={"Região Criúva"} onPress={onPressHandler} />
+      <TitleHeader title={"Região Criúva"} onPress={()=>navigation.goBack()} />
       <SafeAreaView>
         {eventsLoading && <Text>Loading...</Text>}
         {eventsError && <Text>Error: {eventsError}</Text>}
@@ -26,7 +26,7 @@ export default function EventList({ navigation }) {
                 title={item.name}
                 description={item.description}
                 image={item?.image}
-                onPress={onPressHandler}
+                onPress={()=>onPressHandler('ViewItem',item)} 
               />
           )}
         />

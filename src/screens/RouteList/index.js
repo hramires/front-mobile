@@ -10,15 +10,15 @@ import { mockupRoutes } from '../../data';
 export default function RouteList({ navigation }) {
     const [route, rmapsLoading, rmapsError] = useStorage('route');
   
-    const onPressHandler = () => {
-      navigation.goBack();
+    const onPressHandler = (screen, item) => {
+      navigation.navigate(screen, item);
     };
 
   
 
     return(
     <View style={styles.container}>
-        <TitleHeader title={'Região Criúva'} onPress={onPressHandler} />
+        <TitleHeader title={'Região Criúva'} onPress={()=>navigation.goBack()} />
         <SafeAreaView>
           {rmapsLoading && <Text>Loading...</Text>}
           {rmapsError && <Text>Error: {rmapsError}</Text>}
@@ -30,7 +30,7 @@ export default function RouteList({ navigation }) {
                   title={item.name}
                   description={item.description}
                   image={item?.image}
-                  onPress={onPressHandler}
+                  onPress={()=>onPressHandler('ViewItem',item)}
                 />              
             )}
           />
