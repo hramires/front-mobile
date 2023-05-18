@@ -1,39 +1,27 @@
-import React, { useEffect } from 'react';
-import { FlatList, ScrollView, Text, View } from 'react-native';
+import React from 'react';
+import { FlatList, View } from 'react-native';
 import styles from './styles';
 import TitleHeader from '../../components/TitleHeader';
-import LocalCard from '../../components/Card/Card';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import useStorage from '../../hooks/use-storage';
+import Card from '../../components/Card/Card';
 
-
-export default function LocalList({ navigation }) {
-  const [places, placesLoading, placesError] = useStorage('place');
-
-  const onPressHandler = (screen) => {
-    navigation.navigate(screen);
-  };
-
+export default function LocalList({ navigation, route }) {
   return (
     <View style={styles.container}>
-      <TitleHeader title={'Região Criúva'} onPress={()=>onPressHandler('MapLocation')} />
-      <SafeAreaView>
-        {placesLoading && <Text>Loading...</Text>}
-        {placesError && <Text>Error: {placesError}</Text>}
-        <FlatList
-          data={places}
-          renderItem={({ item }) => (
-            <>
-              <LocalCard
-                title={item.name}
-                description={item.description}
-                onPress={()=>onPressHandler('ViewLocation',item)}
-              />
-              <LocalCard />
-            </>
-          )}
-        />
-      </SafeAreaView>
+      <TitleHeader
+        title={'Região Criúva'}
+        onPress={() => navigation.navigate('MapLocation')}
+      />
+      <FlatList
+        data={route.params}
+        renderItem={({ item }) => (
+          <Card
+            title={item.name}
+            description={item.description}
+            image={item.image}
+            onPress={() => navigation.navigate('ViewItem', item)}
+          />
+        )}
+      />
     </View>
   );
 }

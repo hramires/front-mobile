@@ -1,12 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
-//const API_URL = "http://localhost:3000";
-const API_URL = "https://rotasrurais.free.beeceptor.com/";
+const API_URL = 'http://ec2-18-117-78-200.us-east-2.compute.amazonaws.com:3000';
 
 const api = axios.create({
   baseURL: API_URL,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });
 

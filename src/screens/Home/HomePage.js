@@ -1,52 +1,86 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ActivityIndicator, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/core';
 import TitleHeader from '../../components/TitleHeader';
-import CarouselWrapper from './partials/CarouselWrapper';
-import { mockupEvents, mockupPlaces, mockupRoutes } from '../../data';
-//import useFetch from '../../hooks/use-fetch';
+import { mockupRoutes } from '../../data';
+import useFetch from '../../hooks/use-fetch';
+import CarouselHeader from './partials/CarouselHeader';
+import Carousel from '../../components/Carousel/Carousel';
+import { colorPalette } from '../../../constants';
 
-export default function HomePage({navigation}) {
-  //const navigation = useNavigation();
+export default function HomePage({ navigation }) {
   /**
    * Blocked until the server is deployed
-   * const [places, placesLoading, placesError] = useFetch('places');
    * const [regions, regionsLoading, regionsError] = useFetch('regions');
    * const [routes, routesLoading, routesError] = useFetch('routes');
-   * const [events, eventsLoading, eventsError] = useFetch('events');
-   * const [categories, categoriesLoading, categoriesError] =
-   *   useFetch('categories');
    */
-  const onPressHandler = () => {
-    navigation.navigate('MapLocation');
-  };
+  const [places, placesLoading, placesError] = useFetch('place');
+  const [events, eventsLoading, eventsError] = useFetch('event');
 
   return (
     <SafeAreaView>
       <ScrollView>
-        <TitleHeader title={'Região Criúva'} onPress={onPressHandler} />
-        <CarouselWrapper
-          title={'Eventos'}
-          data={mockupEvents}
-          viewAll={'LocalList'}  
-          viewItem={'ViewLocation'}
-          navigation={navigation}     
+        <TitleHeader
+          title={'Região Criúva'}
+          onPress={() => navigation.navigate('MapLocation')}
         />
-        <CarouselWrapper
-          title={'Roteiros'}
-          data={mockupRoutes}
-          viewAll={'LocalList'}
-          viewItem={'ViewLocation'}
-          navigation={navigation}   
-        />
-        <CarouselWrapper
-          title={'Locais'}
-          data={mockupPlaces}
-          viewAll={'LocalList'}
-          viewItem={'ViewLocation'}
-          navigation={navigation}   
-        />
+        <View style={{ display: 'flex', gap: 16 }}>
+          <View id='places-container'>
+            <CarouselHeader
+              navigation={navigation}
+              title='Locais'
+              viewAll='LocalList'
+              data={places?.places || []}
+            />
+            {placesLoading && (
+              <ActivityIndicator
+                size='large'
+                color={colorPalette.backgroundGreen}
+              />
+            )}
+            {!placesLoading && (
+              <Carousel
+                navigation={navigation}
+                data={places?.places || []}
+                navigate={'ViewItem'}
+              />
+            )}
+          </View>
+          <View id='events-container'>
+            <CarouselHeader
+              navigation={navigation}
+              title='Eventos'
+              viewAll='LocalList'
+              data={events || []}
+            />
+            {eventsLoading && (
+              <ActivityIndicator
+                size='large'
+                color={colorPalette.backgroundGreen}
+              />
+            )}
+            {!eventsLoading && (
+              <Carousel
+                navigation={navigation}
+                data={events || []}
+                navigate={'ViewItem'}
+              />
+            )}
+          </View>
+          <View id='routes-container'>
+            <CarouselHeader
+              navigation={navigation}
+              title='Roteiros'
+              viewAll='LocalList'
+              data={mockupRoutes || []}
+            />
+            <Carousel
+              navigation={navigation}
+              data={mockupRoutes || []}
+              navigate={'ViewItem'}
+            />
+          </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
