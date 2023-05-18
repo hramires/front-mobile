@@ -4,7 +4,7 @@ import styles from './styles';
 import TitleHeader from '../../components/TitleHeader';
 import Card from '../../components/Card/Card';
 
-export default function LocalList({ navigation, route }) {
+export default function ViewList({ navigation, route }) {
   return (
     <View style={styles.container}>
       <TitleHeader

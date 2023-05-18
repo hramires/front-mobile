@@ -3,7 +3,7 @@ import { StyleSheet, View, StatusBar, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CustomHeader from './src/components/CustomHeader';
-import LocalList from './src/screens/LocalList';
+import ViewList from './src/screens/ViewList';
 import MapLocation from './src/screens/MapLocation';
 import HomePage from './src/screens/Home/HomePage';
 import ViewItem from './src/screens/ViewItem';
@@ -29,7 +29,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name='HomePage' component={HomePage} />
           <Stack.Screen name='MapLocation' component={MapLocation} />
-          <Stack.Screen name='LocalList' component={LocalList} />
+          <Stack.Screen name='ViewList' component={ViewList} />
           <Stack.Screen name='ViewItem' component={ViewItem} />
         </Stack.Navigator>
       </View>

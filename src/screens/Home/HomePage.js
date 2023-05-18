@@ -29,7 +29,7 @@ export default function HomePage({ navigation }) {
             <CarouselHeader
               navigation={navigation}
               title='Locais'
-              viewAll='LocalList'
+              viewAll='ViewList'
               data={places?.places || []}
             />
             {placesLoading && (
@@ -50,7 +50,7 @@ export default function HomePage({ navigation }) {
             <CarouselHeader
               navigation={navigation}
               title='Eventos'
-              viewAll='LocalList'
+              viewAll='ViewList'
               data={events || []}
             />
             {eventsLoading && (
@@ -67,11 +67,11 @@ export default function HomePage({ navigation }) {
               />
             )}
           </View>
-          <View id='routes-container'>
+          <View id='routes-container' style={{ marginBottom: 16 }}>
             <CarouselHeader
               navigation={navigation}
               title='Roteiros'
-              viewAll='LocalList'
+              viewAll='ViewList'
               data={mockupRoutes || []}
             />
             <Carousel
