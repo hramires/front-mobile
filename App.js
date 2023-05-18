@@ -8,6 +8,7 @@ import EventList from './src/screens/EventList';
 import MapLocation from './src/screens/MapLocation';
 import HomePage from './src/screens/Home/HomePage';
 import RouteList from './src/screens/RouteList'
+import ViewItem from './src/screens/ViewItem';
 import { colorPalette } from './constants';
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
           <Stack.Screen name='LocalList' component={LocalList} />
           <Stack.Screen name='EventList' component={EventList} />
           <Stack.Screen name='RouteList' component={RouteList} />
+          <Stack.Screen name='ViewItem' component={ViewItem} />
         </Stack.Navigator>
       </View>
     </NavigationContainer>
