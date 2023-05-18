@@ -22,6 +22,7 @@ export default function HomePage({ navigation }) {
       <ScrollView>
         <TitleHeader
           title={'Região Criúva'}
+          navigation={navigation}
           onPress={() => navigation.navigate('MapLocation')}
         />
         <View style={{ display: 'flex', gap: 16 }}>

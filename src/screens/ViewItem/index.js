@@ -10,7 +10,7 @@ export default function ViewItem({ navigation, route }) {
     <View style={styles.container}>
       <TitleHeader
         title={'Região Criúva'}
-        onPress={() => navigation.navigate('ViewList')}
+        onPress={() => navigation.goBack()}
       />
       <SafeAreaView>
         <ScrollView>

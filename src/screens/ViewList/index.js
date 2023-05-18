@@ -9,7 +9,7 @@ export default function ViewList({ navigation, route }) {
     <View style={styles.container}>
       <TitleHeader
         title={'Região Criúva'}
-        onPress={() => navigation.navigate('MapLocation')}
+        onPress={() => navigation.goBack()}
       />
       <FlatList
         data={route.params}

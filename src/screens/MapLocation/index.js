@@ -3,7 +3,6 @@ import Map from '../../components/Map';
 import TitleHeader from '../../components/TitleHeader';
 import { View, Text } from 'react-native';
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
 
 export default function MapLocation({ navigation }) {
   return (
@@ -11,7 +10,7 @@ export default function MapLocation({ navigation }) {
       <View style={{ flex: 1 }}>
         <TitleHeader
           title={'Região Criúva'}
-          onPress={() => navigation.navigate('ViewList')}
+          onPress={() => navigation.goBack()}
         />
         <Map />
         {/* <View style={{ flex: 1 }} />  */}
